@@ -45,7 +45,7 @@
       <p class="intro-text">
         Je suis un développeur solo derrière Riftworks. Après plusieurs années à créer des projets en modding, j’ai choisi de passer sur Unreal Engine pour repousser mes limites et donner une véritable liberté à mes idées.
         <br><br><br>
-        Aujourd’hui, je cherche à créer des expériences à part entière : des mondes issus de mon imagination, auxquels je donne vie. Pour moi, créer des mods ou des jeux, c’est donner forme à des lieux dans lesquels je me projette, et offrir aux joueurs — ou simplement aux rêveurs — la possibilité d’explorer de nouveaux mondes.
+        Aujourd’hui, je cherche à créer des expériences à part entière : des mondes issus de mon imagination, auxquels je donne vie. Pour moi, créer des mods ou des jeux, c’est donner forme à des lieux dans lesquels je me projette, et permettre aux joueurs — ou simplement aux rêveurs — la possibilité d’explorer de nouveaux mondes.
       </p>
 
       <img class="section-divider" src="images/section.png" alt="Séparateur">
@@ -96,51 +96,64 @@
   </footer>
 
   <script>
-    const container = document.querySelector('.particles');
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-    const navAnchors = document.querySelectorAll('.nav-links a');
+  const container = document.querySelector('.particles');
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  const navAnchors = document.querySelectorAll('.nav-links a');
 
-    if (container) {
-      for (let i = 0; i < 40; i++) {
-        const p = document.createElement('span');
-        p.style.left = Math.random() * 100 + "vw";
+  if (container) {
+    const total = 60;
 
-        const duration = 8 + Math.random() * 8;
-        p.style.animationDuration = duration + "s";
-        p.style.animationDelay = Math.random() * 5 + "s";
+    for (let i = 0; i < total; i++) {
+      const p = document.createElement('span');
 
-        const size = Math.random() * 2 + 1;
-        p.style.width = size + "px";
-        p.style.height = size + "px";
-        p.style.opacity = 0.3 + Math.random() * 0.5;
+      // répartition uniforme + léger random
+      const base = (i / total) * 100;
+      const offset = (Math.random() - 0.5) * 3;
+      p.style.left = Math.max(0, Math.min(100, base + offset)) + "vw";
 
-        if (Math.random() > 0.8) {
-          p.style.background = "rgba(255,255,255,0.6)";
-          p.style.boxShadow = "0 0 4px rgba(255,255,255,0.4)";
-        }
+      // vitesse un peu plus lente
+      const duration = 14 + Math.random() * 12;
+      p.style.animationDuration = duration + "s";
 
-        container.appendChild(p);
+      // delay bien réparti pour éviter les trous
+      p.style.animationDelay = Math.random() * duration + "s";
+
+      // taille
+      const size = Math.random() * 2 + 1;
+      p.style.width = size + "px";
+      p.style.height = size + "px";
+
+      // opacité
+      p.style.opacity = 0.3 + Math.random() * 0.5;
+
+      // variation couleur
+      if (Math.random() > 0.8) {
+        p.style.background = "rgba(255,255,255,0.6)";
+        p.style.boxShadow = "0 0 4px rgba(255,255,255,0.4)";
       }
+
+      container.appendChild(p);
     }
+  }
 
-    if (burger && navLinks) {
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('active');
-        navLinks.classList.toggle('open');
+  if (burger && navLinks) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navLinks.classList.toggle('open');
 
-        const isOpen = navLinks.classList.contains('open');
-        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      const isOpen = navLinks.classList.contains('open');
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    navAnchors.forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        navLinks.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
       });
-
-      navAnchors.forEach(link => {
-        link.addEventListener('click', () => {
-          burger.classList.remove('active');
-          navLinks.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-  </script>
+    });
+  }
+</script>
 </body>
 </html>
