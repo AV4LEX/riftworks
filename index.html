@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riftworks</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" type="image/png" href="images/logo_R.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/logo_R.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/logo_R.png">
+</head>
+
+<body>
+  <div class="particles"></div>
+
+  <nav>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="#accueil">ACCUEIL</a></li>
+      <li><a href="#studio">STUDIO</a></li>
+      <li><a href="#unpathed">UNPATHED</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <header id="accueil">
+    <img src="images/logo_riftworks.png" alt="Logo Riftworks">
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1 class="hidden-title">
+        Riftworks - Développeur de jeux vidéo indépendant
+      </h1>
+
+      <h2 class="section-title" id="studio">STUDIO</h2>
+
+      <p class="intro-text">
+        Je suis un développeur solo derrière Riftworks. Après plusieurs années à créer des projets en modding, j’ai choisi de passer sur Unreal Engine pour repousser mes limites et donner une véritable liberté à mes idées.
+        <br><br><br>
+        Aujourd’hui, je cherche à créer des expériences à part entière : des mondes issus de mon imagination, auxquels je donne vie. Pour moi, créer des mods ou des jeux, c’est donner forme à des lieux dans lesquels je me projette, et offrir aux joueurs — ou simplement aux rêveurs — la possibilité d’explorer de nouveaux mondes.
+      </p>
+
+      <img class="section-divider" src="images/section.png" alt="Séparateur">
+    </section>
+
+    <section id="unpathed" class="game-section">
+      <img class="game-logo" src="images/Unpathed_logo.png" alt="Logo UNPATHED">
+
+      <h2 class="section-title">UNPATHED</h2>
+
+      <p class="game-text">
+        UNPATHED est un action-RPG centré sur l’atmosphère, la tension et l’exploration de mondes brisés. Le joueur progresse à travers des environnements instables, où chaque avancée demande attention, adaptation et une véritable lecture du danger. L’univers s’articule autour de failles et de zones fragmentées, avec une progression organique plutôt que linéaire. L’objectif est de proposer une expérience atypique, exigeante et immersive, portée par une identité visuelle forte et un véritable sens du mystère.
+      </p>
+
+      <p class="game-text">
+        L’univers repose sur des failles, des zones fragmentées et une progression plus organique que linéaire. L’objectif est de créer une expérience sombre, exigeante et immersive, portée par une identité visuelle forte et un vrai sens du mystère.
+      </p>
+
+      <img class="section-divider" src="images/section.png" alt="Séparateur">
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2 class="section-title">CONTACT</h2>
+
+      <p class="contact-text">
+        Pour suivre le projet, découvrir les prochaines avancées ou me contacter :
+      </p>
+
+      <div class="contact-links">
+        <a
+          class="contact-button"
+          href="https://www.tiktok.com/@riftworks_studio"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok
+        </a>
+
+        <a class="contact-button contact-mail" href="mailto:studioriftworks@gmail.com">
+          studioriftworks@gmail.com
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Riftworks. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    const container = document.querySelector('.particles');
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    if (container) {
+      for (let i = 0; i < 40; i++) {
+        const p = document.createElement('span');
+        p.style.left = Math.random() * 100 + "vw";
+
+        const duration = 8 + Math.random() * 8;
+        p.style.animationDuration = duration + "s";
+        p.style.animationDelay = Math.random() * 5 + "s";
+
+        const size = Math.random() * 2 + 1;
+        p.style.width = size + "px";
+        p.style.height = size + "px";
+        p.style.opacity = 0.3 + Math.random() * 0.5;
+
+        if (Math.random() > 0.8) {
+          p.style.background = "rgba(255,255,255,0.6)";
+          p.style.boxShadow = "0 0 4px rgba(255,255,255,0.4)";
+        }
+
+        container.appendChild(p);
+      }
+    }
+
+    if (burger && navLinks) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navLinks.classList.toggle('open');
+
+        const isOpen = navLinks.classList.contains('open');
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      navAnchors.forEach(link => {
+        link.addEventListener('click', () => {
+          burger.classList.remove('active');
+          navLinks.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</body>
+</html>
