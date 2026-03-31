@@ -101,33 +101,26 @@
   const navLinks = document.querySelector('.nav-links');
   const navAnchors = document.querySelectorAll('.nav-links a');
 
+  // PARTICULES
   if (container) {
     const total = 60;
 
     for (let i = 0; i < total; i++) {
       const p = document.createElement('span');
 
-      // répartition uniforme + léger random
       const base = (i / total) * 100;
       const offset = (Math.random() - 0.5) * 3;
       p.style.left = Math.max(0, Math.min(100, base + offset)) + "vw";
 
-      // vitesse un peu plus lente
       const duration = 14 + Math.random() * 12;
       p.style.animationDuration = duration + "s";
-
-      // delay bien réparti pour éviter les trous
       p.style.animationDelay = Math.random() * duration + "s";
 
-      // taille
       const size = Math.random() * 2 + 1;
       p.style.width = size + "px";
       p.style.height = size + "px";
-
-      // opacité
       p.style.opacity = 0.3 + Math.random() * 0.5;
 
-      // variation couleur
       if (Math.random() > 0.8) {
         p.style.background = "rgba(255,255,255,0.6)";
         p.style.boxShadow = "0 0 4px rgba(255,255,255,0.4)";
@@ -137,6 +130,7 @@
     }
   }
 
+  // BURGER MENU
   if (burger && navLinks) {
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
@@ -153,6 +147,54 @@
         burger.setAttribute('aria-expanded', 'false');
       });
     });
+  }
+
+  // 🌍 LANGUE AUTO
+  const lang = navigator.language || navigator.userLanguage;
+
+  if (lang.startsWith('en')) {
+
+    document.documentElement.lang = 'en';
+
+    // NAV
+    burger.setAttribute('aria-label', 'Open menu');
+
+    const links = document.querySelectorAll('.nav-links a');
+    links[0].textContent = 'HOME';
+    links[1].textContent = 'STUDIO';
+    links[2].textContent = 'UNPATHED';
+    links[3].textContent = 'CONTACT';
+
+    // TITRES
+    document.querySelector('#studio').textContent = 'STUDIO';
+    document.querySelector('#unpathed .section-title').textContent = 'UNPATHED';
+    document.querySelector('#contact .section-title').textContent = 'CONTACT';
+
+    // INTRO
+    document.querySelector('.intro-text').innerHTML = `
+      I am a solo developer behind Riftworks. After several years creating modding projects, I decided to move to Unreal Engine to push my limits and gain true freedom for my ideas.
+      <br><br><br>
+      Today, I aim to create complete experiences: worlds born from my imagination that I bring to life. For me, creating mods or games means shaping places I can project myself into, and giving players — or simply dreamers — the chance to explore new worlds.
+    `;
+
+    // UNPATHED
+    const gameTexts = document.querySelectorAll('.game-text');
+
+    gameTexts[0].textContent = `
+      UNPATHED is an action RPG focused on atmosphere, tension, and exploration of fractured worlds. The player progresses through unstable environments where every step requires attention, adaptation, and true awareness of danger. The world revolves around rifts and fragmented zones, with an organic progression rather than a linear one. The goal is to deliver a unique, demanding, and immersive experience, driven by a strong visual identity and a deep sense of mystery.
+    `;
+
+    gameTexts[1].textContent = `
+      The universe is built around rifts, fragmented zones, and a more organic progression than linear. The goal is to create a dark, demanding, and immersive experience, supported by a strong visual identity and a true sense of mystery.
+    `;
+
+    // CONTACT
+    document.querySelector('.contact-text').textContent =
+      'To follow the project, discover upcoming updates or contact me:';
+
+    // FOOTER
+    document.querySelector('.site-footer p').textContent =
+      '© 2026 Riftworks. All rights reserved.';
   }
 </script>
 </body>
