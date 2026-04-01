@@ -91,6 +91,7 @@ nav a {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: transform 0.15s ease, color 0.2s ease;
+  cursor: pointer;
 }
 
 nav a:hover {
