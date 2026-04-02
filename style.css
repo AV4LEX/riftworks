@@ -52,7 +52,6 @@ nav::after {
 .burger {
   display: none;
   position: relative;
-  z-index: 1002;
   width: 44px;
   height: 44px;
   background: transparent;
@@ -60,16 +59,54 @@ nav::after {
   cursor: pointer;
 }
 
+/* BASE */
 .burger span {
-  display: block;
-  width: 26px;
+  position: absolute;
+  width: 24px;
   height: 2px;
-  margin: 6px auto;
-  background: #ffffff;
-  transition: 0.25s ease;
-  box-shadow:
-    0 0 4px rgba(0, 200, 255, 0.35),
-    0 0 8px rgba(0, 150, 255, 0.14);
+  background: #fff;
+  left: 50%;
+  transform-origin: center;
+  transition: all 0.25s ease;
+}
+
+/* === TON TRIANGLE (INTOUCHABLE) === */
+
+.burger span:nth-child(1) {
+  top: 50%;
+  transform: translate(-75%, -3px) rotate(-60deg);
+}
+
+.burger span:nth-child(2) {
+  top: 50%;
+  transform: translate(-25%, -3px) rotate(60deg);
+}
+
+.burger span:nth-child(3) {
+  top: 50%;
+  transform: translate(-50%, 7px);
+}
+
+/* === ETAT ACTIF (CROIX) === */
+
+/* on recentre TOUT */
+.burger.active span {
+  left: 50%;
+  top: 50%;
+}
+
+/* rotation croix */
+.burger.active span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* on cache la base */
+.burger.active span:nth-child(3) {
+  opacity: 0;
 }
 
 .nav-links {
@@ -450,18 +487,7 @@ footer {
     font-size: 14px;
   }
 
-  /* animation burger */
-  .burger.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .burger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .burger.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+  
 }
 
   header {
