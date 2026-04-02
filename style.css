@@ -57,7 +57,6 @@ nav::after {
   background: transparent;
   border: none;
   cursor: pointer;
-  animation: pulse 2s ease-in-out infinite;
 }
 
 /* BASE */
@@ -79,32 +78,148 @@ nav::after {
   
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform-origin: center;
+}
+
+
+
+/* creux interne */
+.burger::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-bottom: 22px solid rgba(0, 0, 0, 0.456); /* couleur du fond */
+
+  transform: translate(-50%, -58%) scale(0.72);
+  transform-origin: 50% 66%;
+  opacity: 0;
+
+  animation: triangleWaveInner 1.7s ease-out infinite;
+}
+
+
+
+@keyframes triangleWaveInner {
+  0% {
+    transform: translate(-50%, -58%) scale(0.72);
+    opacity: 0;
   }
-  50% {
+  14% {
     opacity: 1;
-    transform: scale(1.07);
+  }
+  100% {
+    transform: translate(-50%, -58%) scale(1.5);
+    opacity: 0;
   }
 }
 
-/* === TON TRIANGLE (INTOUCHABLE) === */
+.burger.active::before,
+.burger.active::after {
+  animation: none;
+  opacity: 0;
+}
+
+
+/* === TRIANGLE  === */
 
 .burger span:nth-child(1) {
   top: 50%;
-  transform: translate(-75%, -3px) rotate(-60deg);
 }
 
 .burger span:nth-child(2) {
   top: 50%;
-  transform: translate(-25%, -3px) rotate(60deg);
 }
 
 .burger span:nth-child(3) {
   top: 50%;
-  transform: translate(-50%, 7px);
+}
+
+.burger:not(.active) span:nth-child(1) {
+  animation: pulse1 1.7s ease-out infinite;
+}
+
+.burger:not(.active) span:nth-child(2) {
+  animation: pulse2 1.7s ease-out infinite;
+}
+
+.burger:not(.active) span:nth-child(3) {
+  animation: pulse3 1.7s ease-out infinite;
+}
+
+@keyframes pulse1 {
+  0%, 100% {
+    transform: translate(-75%, -3px) rotate(-60deg) scale(1);
+    box-shadow:
+      0 0 1px rgba(180, 220, 255, 0.8),
+      0 0 4px rgba(0, 200, 255, 0.6),
+      0 0 10px rgba(0, 150, 255, 0.3);
+  }
+  10% {
+    transform: translate(-75%, -3px) rotate(-60deg) scale(1.075);
+    box-shadow:
+      0 0 2px rgba(120, 200, 255, 0.9),
+      0 0 9px rgba(0, 200, 255, 0.9),
+      0 0 18px rgba(0, 140, 255, 0.85);
+  }
+  24% {
+    transform: translate(-75%, -3px) rotate(-60deg) scale(1);
+  }
+}
+
+@keyframes pulse2 {
+  0%, 100% {
+    transform: translate(-25%, -3px) rotate(60deg) scale(1);
+    box-shadow:
+      0 0 1px rgba(180, 220, 255, 0.8),
+      0 0 4px rgba(0, 200, 255, 0.6),
+      0 0 10px rgba(0, 150, 255, 0.3);
+  }
+  10% {
+    transform: translate(-25%, -3px) rotate(60deg) scale(1.075);
+    box-shadow:
+      0 0 2px rgba(120, 200, 255, 0.9),
+      0 0 9px rgba(0, 200, 255, 0.9),
+      0 0 18px rgba(0, 140, 255, 0.85);
+  }
+  24% {
+    transform: translate(-25%, -3px) rotate(60deg) scale(1);
+  }
+}
+
+@keyframes pulse3 {
+  0%, 100% {
+    transform: translate(-50%, 7px) scale(1);
+    box-shadow:
+      0 0 1px rgba(180, 220, 255, 0.8),
+      0 0 4px rgba(0, 200, 255, 0.6),
+      0 0 10px rgba(0, 150, 255, 0.3);
+  }
+  10% {
+    transform: translate(-50%, 7px) scale(1.075);
+    box-shadow:
+      0 0 2px rgba(120, 200, 255, 0.9),
+      0 0 9px rgba(0, 200, 255, 0.9),
+      0 0 18px rgba(0, 140, 255, 0.85);
+  }
+  24% {
+    transform: translate(-50%, 7px) scale(1);
+  }
 }
 
 /* === ETAT ACTIF (CROIX) === */
@@ -308,23 +423,9 @@ main {
   text-transform: uppercase;
   
   transition: transform 0.15s ease, color 0.2s ease, border-color 0.2s ease;
-  box-shadow:
-    0 0 1px rgba(255, 255, 255, 1.4),
-    0 0 4px rgba(0, 200, 255, 1.1),
-    0 0 4px rgba(0, 150, 255, 0.9);
-  animation: pulse_button 2s ease-in-out infinite;
 }
 
-@keyframes pulse_button {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+
 
 .contact-button::after {
   content: "";
