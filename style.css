@@ -57,6 +57,7 @@ nav::after {
   background: transparent;
   border: none;
   cursor: pointer;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* BASE */
@@ -67,7 +68,26 @@ nav::after {
   background: #fff;
   left: 50%;
   transform-origin: center;
-  transition: all 0.25s ease;
+  transition: all 0.10s ease;
+
+  /* GLOW identique nav */
+  box-shadow:
+    0 0 1px rgba(255, 255, 255, 0.9),
+    0 0 4px rgba(0, 200, 255, 0.6),
+    0 0 10px rgba(0, 150, 255, 0.3);
+
+  
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
 }
 
 /* === TON TRIANGLE (INTOUCHABLE) === */
@@ -286,10 +306,24 @@ main {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.01),
-    0 0 6px rgba(0, 110, 255, 0.04);
+  
   transition: transform 0.15s ease, color 0.2s ease, border-color 0.2s ease;
+  box-shadow:
+    0 0 1px rgba(255, 255, 255, 1.4),
+    0 0 4px rgba(0, 200, 255, 1.1),
+    0 0 4px rgba(0, 150, 255, 0.9);
+  animation: pulse_button 2s ease-in-out infinite;
+}
+
+@keyframes pulse_button {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .contact-button::after {
