@@ -48,7 +48,7 @@
       <p class="intro-text">
         Je suis un développeur solo derrière Riftworks. Après plusieurs années à créer des projets en modding, j’ai choisi de passer sur Unreal Engine pour repousser mes limites et donner une véritable liberté à mes idées.
         <br>
-        Aujourd’hui, je cherche à créer des expériences à part entière : des mondes issus de mon imagination, auxquels je donne vie. Pour moi, créer des mods ou des jeux, c’est donner forme à des lieux dans lesquels je me projette, et permettre aux joueurs — ou simplement aux rêveurs — la possibilité d’explorer de nouveaux mondes.
+        Aujourd’hui, je cherche à créer des expériences à part entière. Pour moi, créer des mods ou des jeux, c’est donner forme à des lieux dans lesquels je me projette, et permettre aux joueurs ou simplement aux rêveurs, la possibilité d’explorer de nouveaux mondes.
       </p>
 
       <img class="section-divider" src="images/section.png" alt="Séparateur">
@@ -60,8 +60,7 @@
       <h2 class="section-title">UNPATHED</h2>
 
       <p class="game-text">
-        UNPATHED est un action-RPG centré sur l’atmosphère, la tension et l’exploration de mondes brisés. Le joueur progresse à travers des environnements instables, où chaque avancée demande attention, adaptation et une véritable lecture du danger. L’univers s’articule autour de failles et de zones fragmentées, avec une progression organique plutôt que linéaire. L’objectif est de proposer une expérience atypique, exigeante et immersive, portée par une identité visuelle forte et un véritable sens du mystère.
-      </p>
+      UNPATHED est un action-RPG centré sur l’atmosphère, la tension et l’exploration de mondes brisés. L’univers s’articule autour d’un monde fixe dans lequel des passages éphémères vers d’autres univers apparaissent. L’objectif est de proposer une expérience atypique, immersive et challengeante, portée par une identité visuelle forte et un véritable sens du mystère.</p>
 
       <img class="section-divider" src="images/section.png" alt="Séparateur">
     </section>
@@ -170,18 +169,18 @@
     document.querySelector('#contact .section-title').textContent = 'CONTACT';
 
     // INTRO
-    document.querySelector('.intro-text').innerHTML = `
-      I am a solo developer behind Riftworks. After several years creating modding projects, I decided to move to Unreal Engine to push my limits and gain true freedom for my ideas.
-      <br><br><br>
-      Today, I aim to create complete experiences: worlds born from my imagination that I bring to life. For me, creating mods or games means shaping places I can project myself into, and giving players — or simply dreamers — the chance to explore new worlds.
-    `;
+  document.querySelector('.intro-text').innerHTML = `
+    I am a solo developer behind Riftworks. After several years creating modding projects, I chose to move to Unreal Engine to push my limits and give true freedom to my ideas.
+    <br><br>
+    Today, I aim to create complete experiences. For me, creating mods or games means shaping places I can project myself into, and giving players or simply dreamers the opportunity to explore new worlds.
+  `;
 
     // UNPATHED
-    const gameTexts = document.querySelectorAll('.game-text');
+const gameTexts = document.querySelectorAll('.game-text');
 
-    gameTexts[0].textContent = `
-      UNPATHED is an action RPG focused on atmosphere, tension, and exploration of fractured worlds. The player progresses through unstable environments where every step requires attention, adaptation, and true awareness of danger. The world revolves around rifts and fragmented zones, with an organic progression rather than a linear one. The goal is to deliver a unique, demanding, and immersive experience, driven by a strong visual identity and a deep sense of mystery.
-    `;
+gameTexts[0].textContent = `
+  UNPATHED is an action RPG focused on atmosphere, tension, and the exploration of fractured worlds. The world revolves around a fixed reality, within which ephemeral passages to other worlds appear. The goal is to deliver an atypical, immersive, and challenging experience, driven by a strong visual identity and a deep sense of mystery.
+`;
 
     // CONTACT
     document.querySelector('.contact-text').textContent =
