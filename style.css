@@ -270,6 +270,8 @@ nav::after {
 .burger.active span {
   left: 50%;
   top: 50%;
+  animation: none !important;
+  transition: none;
 }
 
 /* rotation croix */
