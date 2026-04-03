@@ -114,19 +114,27 @@ nav::after {
 }
 
 
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
 
-@keyframes triangleWaveInner {
-  0% {
-    transform: translate(-50%, -58%) scale(0.72);
-    opacity: 0;
-  }
-  14% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-50%, -58%) scale(1.5);
-    opacity: 0;
-  }
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+
+  transform: translate(-50%, -34%) scale(1);
+  transform-origin: center;
+
+  z-index: 4;
+  clip-path: none;
+
+  box-shadow:
+    0 0 3px rgba(0, 200, 255, 0.3);
+
+  animation: dotPulse 1.7s ease-out infinite;
 }
 
 .burger.active::before,
@@ -162,20 +170,46 @@ nav::after {
   animation: pulse3 1.7s ease-out infinite;
 }
 
+@keyframes dotPulse {
+  0%, 100% {
+    transform: translate(-50%, -34%) scale(1);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow:
+      0 0 3px rgba(0, 200, 255, 0.3);
+  }
+
+  10% {
+    transform: translate(-50%, -34%) scale(1.4); /* pulse visible */
+    background: rgba(200, 235, 255, 1);
+    box-shadow:
+      0 0 6px rgba(120, 220, 255, 1),
+      0 0 14px rgba(0, 180, 255, 0.9),
+      0 0 28px rgba(0, 140, 255, 0.6);
+  }
+
+  24% {
+    transform: translate(-50%, -34%) scale(1);
+  }
+}
+
 @keyframes pulse1 {
   0%, 100% {
     transform: translate(-75%, -3px) rotate(-60deg) scale(1);
     box-shadow:
-      0 0 1px rgba(180, 220, 255, 0.8),
-      0 0 4px rgba(0, 200, 255, 0.6),
-      0 0 10px rgba(0, 150, 255, 0.3);
+      0 0 3px rgba(210, 235, 255, 1),
+      0 0 8px rgba(70, 210, 255, 0.9),
+      0 0 18px rgba(0, 170, 255, 0.72),
+      0 0 32px rgba(0, 130, 255, 0.5),
+      0 0 48px rgba(0, 110, 255, 0.28);
   }
   10% {
-    transform: translate(-75%, -3px) rotate(-60deg) scale(1.075);
+    transform: translate(-75%, -3px) rotate(-60deg) scale(1.095);
     box-shadow:
-      0 0 2px rgba(120, 200, 255, 0.9),
-      0 0 9px rgba(0, 200, 255, 0.9),
-      0 0 18px rgba(0, 140, 255, 0.85);
+      0 0 4px rgba(235, 245, 255, 1),
+      0 0 12px rgba(120, 225, 255, 1),
+      0 0 28px rgba(0, 190, 255, 1),
+      0 0 44px rgba(0, 145, 255, 0.82),
+      0 0 64px rgba(0, 120, 255, 0.5);
   }
   24% {
     transform: translate(-75%, -3px) rotate(-60deg) scale(1);
@@ -186,16 +220,20 @@ nav::after {
   0%, 100% {
     transform: translate(-25%, -3px) rotate(60deg) scale(1);
     box-shadow:
-      0 0 1px rgba(180, 220, 255, 0.8),
-      0 0 4px rgba(0, 200, 255, 0.6),
-      0 0 10px rgba(0, 150, 255, 0.3);
+      0 0 3px rgba(210, 235, 255, 1),
+      0 0 8px rgba(70, 210, 255, 0.9),
+      0 0 18px rgba(0, 170, 255, 0.72),
+      0 0 32px rgba(0, 130, 255, 0.5),
+      0 0 48px rgba(0, 110, 255, 0.28);
   }
   10% {
-    transform: translate(-25%, -3px) rotate(60deg) scale(1.075);
+    transform: translate(-25%, -3px) rotate(60deg) scale(1.095);
     box-shadow:
-      0 0 2px rgba(120, 200, 255, 0.9),
-      0 0 9px rgba(0, 200, 255, 0.9),
-      0 0 18px rgba(0, 140, 255, 0.85);
+      0 0 4px rgba(235, 245, 255, 1),
+      0 0 12px rgba(120, 225, 255, 1),
+      0 0 28px rgba(0, 190, 255, 1),
+      0 0 44px rgba(0, 145, 255, 0.82),
+      0 0 64px rgba(0, 120, 255, 0.5);
   }
   24% {
     transform: translate(-25%, -3px) rotate(60deg) scale(1);
@@ -206,16 +244,20 @@ nav::after {
   0%, 100% {
     transform: translate(-50%, 7px) scale(1);
     box-shadow:
-      0 0 1px rgba(180, 220, 255, 0.8),
-      0 0 4px rgba(0, 200, 255, 0.6),
-      0 0 10px rgba(0, 150, 255, 0.3);
+      0 0 3px rgba(210, 235, 255, 1),
+      0 0 8px rgba(70, 210, 255, 0.9),
+      0 0 18px rgba(0, 170, 255, 0.72),
+      0 0 32px rgba(0, 130, 255, 0.5),
+      0 0 48px rgba(0, 110, 255, 0.28);
   }
   10% {
-    transform: translate(-50%, 7px) scale(1.075);
+    transform: translate(-50%, 7px) scale(1.095);
     box-shadow:
-      0 0 2px rgba(120, 200, 255, 0.9),
-      0 0 9px rgba(0, 200, 255, 0.9),
-      0 0 18px rgba(0, 140, 255, 0.85);
+      0 0 4px rgba(235, 245, 255, 1),
+      0 0 12px rgba(120, 225, 255, 1),
+      0 0 28px rgba(0, 190, 255, 1),
+      0 0 44px rgba(0, 145, 255, 0.82),
+      0 0 64px rgba(0, 120, 255, 0.5);
   }
   24% {
     transform: translate(-50%, 7px) scale(1);
