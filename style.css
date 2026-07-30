@@ -395,7 +395,7 @@ main {
 
 .game-section {
   max-width: 950px;
-  margin: 0 auto 90px;
+  margin: 0 auto 40px;
   padding: 0 20px;
   text-align: center;
 }
@@ -409,7 +409,17 @@ main {
 }
 
 .game-section .section-title {
-  margin-bottom: 28px;
+  margin-bottom: 40px;
+}
+
+.hero-video {
+    width: 100%;
+}
+
+.hero-video video {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .game-text {
@@ -423,6 +433,10 @@ main {
 #unpathed {
   margin-top: 0;
   padding-top: 0;
+}
+
+#unptd {
+  scroll-margin-top: 90px;
 }
 
 .contact-section {
