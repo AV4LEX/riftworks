@@ -29,7 +29,8 @@
     <ul class="nav-links">
       <li><a href="#accueil">ACCUEIL</a></li>
       <li><a href="#studio">STUDIO</a></li>
-      <li><a href="#unptd" translate="no">UNPATHED</a></li>
+      <li><a href="#unptd">JEUX</a></li>
+      <li><a href="unpathed.html" translate="no">UNPATHED</a></li>
       <li><a href="#contact">CONTACT</a></li>
     </ul>
   </nav>
@@ -48,9 +49,22 @@
 
       <p class="intro-text">
         Je suis un développeur solo derrière Riftworks. Après plusieurs années à créer des projets en modding, j’ai choisi de passer sur Unreal Engine pour repousser mes limites et donner une véritable liberté à mes idées.
-        <br><br>
-        Aujourd’hui, je cherche à créer des expériences à part entière. Pour moi, créer des mods ou des jeux, c’est donner forme à des lieux dans lesquels je me projette, et permettre aux joueurs ou simplement aux rêveurs, la possibilité d’explorer de nouveaux mondes.
       </p>
+          
+      <p class="intro-text">
+        Aujourd’hui, je cherche à créer des expériences à part entière. Pour moi, créer des mods ou des jeux, c’est donner forme à des lieux dans lesquels je me projette, et permettre aux joueurs d’explorer de nouveaux mondes.
+      </p>
+
+      <div class="contact-links">
+        <a
+          class="contact-button steam-workshop-btn" 
+          href="https://steamcommunity.com/profiles/76561199054027172/myworkshopfiles/?appid=311210"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Mon Workshop Steam 
+        </a>
+      </div>
 
       <img class="section-divider" src="images/section.png" alt="Séparateur">
     </section>
@@ -65,7 +79,19 @@
       <h2 class="section-title" translate="no">UNPATHED</h2>
 
       <p class="game-text">
-      UNPATHED est un action-RPG centré sur l’atmosphère, la tension et l’exploration. L’univers s’articule autour d’un monde fixe dans lequel des passages éphémères vers d’autres univers apparaissent. L’objectif est de proposer une expérience atypique, immersive et challengeante, portée par une identité visuelle forte et un véritable sens du mystère.</p>
+      UNPATHED est un action-RPG fantasy sci-fi à la troisième personne, actuellement en cours de développement. Le jeu plongera les joueurs dans un monde où l'humanité tente de reprendre le contrôle après une invasion alien.</p>
+      
+      <p class="game-text">
+      Les joueurs incarneront un Sans-Chemin, un humain génétiquement modifié grâce à des gènes aliens, capable de traverser les failles reliant d'autres mondes afin de les refermer et d'enrayer l'invasion.</p>
+
+      <div class="contact-links">
+        <a
+          class="contact-button discover-unpathed-btn"
+          href="unpathed.html"
+        >
+        Découvrir UNPATHED
+        </a>
+      </div>
 
       <img class="section-divider" src="images/section.png" alt="Séparateur">
     </section>
@@ -173,27 +199,38 @@
     const links = document.querySelectorAll('.nav-links a');
     links[0].textContent = 'HOME';
     links[1].textContent = 'STUDIO';
-    links[2].textContent = 'UNPATHED';
-    links[3].textContent = 'CONTACT';
+    links[2].textContent = 'GAMES';
+    links[3].textContent = 'UNPATHED';
+    links[4].textContent = 'CONTACT';
 
     // TITRES
     document.querySelector('#studio').textContent = 'STUDIO';
     document.querySelector('#unpathed .section-title').textContent = 'UNPATHED';
     document.querySelector('#contact .section-title').textContent = 'CONTACT';
 
-    // INTRO
-  document.querySelector('.intro-text').innerHTML = `
-    I am a solo developer behind Riftworks. After several years creating modding projects, I chose to move to Unreal Engine to push my limits and give true freedom to my ideas.
-    <br><br>
-    Today, I aim to create complete experiences. For me, creating mods or games means shaping places I can project myself into, and giving players or simply dreamers the opportunity to explore new worlds.
-  `;
+  // INTRO
+const introTexts = document.querySelectorAll('.intro-text');
+
+introTexts[0].textContent =
+  'I am the solo developer behind Riftworks. After several years creating modding projects, I chose to move to Unreal Engine to push my limits and give true freedom to my ideas.';
+
+introTexts[1].textContent =
+  'Today, I aim to create complete experiences. For me, creating mods or games means shaping places I can project myself into, and giving players the opportunity to explore new worlds.';
+
+document.querySelector('.steam-workshop-btn').textContent =
+  'My Steam Workshop';
 
     // UNPATHED
 const gameTexts = document.querySelectorAll('.game-text');
 
-gameTexts[0].textContent = `
-  UNPATHED is an action RPG focused on atmosphere, tension, and the exploration. The world revolves around a fixed reality, within which ephemeral passages to other worlds appear. The goal is to deliver an atypical, immersive, and challenging experience, driven by a strong visual identity and a deep sense of mystery.
-`;
+gameTexts[0].textContent =
+  'UNPATHED is a third-person fantasy sci-fi action RPG currently in development. The game immerses players in a world where humanity struggles to reclaim control after an alien invasion.';
+
+gameTexts[1].textContent =
+  'Players take on the role of an Unpathed, a genetically enhanced human infused with alien genes who can traverse rifts connecting other worlds to seal them and halt the invasion.';
+
+document.querySelector('.discover-unpathed-btn').textContent =
+  'Discover UNPATHED';
 
     // CONTACT
     document.querySelector('.contact-text').textContent =
