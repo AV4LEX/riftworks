@@ -516,6 +516,8 @@ main {
   color: #ffffff;
 }
 
+
+
 .enemy-content p {
   margin: 0;
   max-width: 550px;
@@ -886,6 +888,12 @@ footer {
   letter-spacing: 2px; 
   font-weight: 500;
   }
+
+  @media (max-width: 768px) {
+    .enemy-content h3 {
+        font-size: 1.5rem;
+    }
+}
 
   h3{
     font-family: 'Cinzel', serif;
